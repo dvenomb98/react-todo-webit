@@ -1,8 +1,7 @@
 import { combineReducers } from '@reduxjs/toolkit'
-import themeReducer from '@/redux/theme/theme.slice'
 
 export const rootReducer = combineReducers({
-    theme: themeReducer,
+    //your TODO should go here
 })
 
 export type RootState = ReturnType<typeof rootReducer>

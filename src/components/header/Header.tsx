@@ -1,17 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { AppBar, IconButton, Stack, Toolbar, Typography, useTheme } from '@mui/material'
 import BuildIcon from '@mui/icons-material/Build'
 import { useAppDispatch } from '@/redux/store'
-import { toggleTheme } from '@/redux/theme/theme.slice'
 import Brightness4Icon from '@mui/icons-material/Brightness4'
 import Brightness7Icon from '@mui/icons-material/Brightness7'
 import { useNavigate } from 'react-router-dom'
 import { AccountCircle } from '@mui/icons-material'
+import { ThemeSwitchContext } from '@/theme/theme'
 
 export const Header = () => {
     const themeMaterial = useTheme()
     const dispatch = useAppDispatch()
-    const handleSwitchTheme = () => dispatch(toggleTheme())
+    const { toggleColorMode } = useContext(ThemeSwitchContext)
     const navigate = useNavigate()
     return (
         <AppBar position="static">
@@ -38,7 +38,7 @@ export const Header = () => {
                     </IconButton>
                 </Stack>
                 {themeMaterial.palette.mode} mode
-                <IconButton sx={{ ml: 1 }} onClick={handleSwitchTheme} color="inherit">
+                <IconButton sx={{ ml: 1 }} onClick={toggleColorMode} color="inherit">
                     {themeMaterial.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
                 </IconButton>
             </Toolbar>
