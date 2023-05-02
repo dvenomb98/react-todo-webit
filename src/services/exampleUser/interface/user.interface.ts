@@ -1,6 +1,6 @@
-import { Role } from '@/services/user/enum/role.enum'
+import { Role } from '@/services/exampleUser/enum/role.enum'
 
-export interface User {
+export interface ExampleUser {
     id: number
     firstName: string
     lastName: string
